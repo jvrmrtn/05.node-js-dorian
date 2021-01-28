@@ -2,7 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path'); //Module normaliaze routes
 
-const port = 3000;
+// Variables de Entorno .env
+require('dotenv').config();
+
+const port = process.env.PORT || 3000;
 
 // Engine pug
 app.set('view engine', 'pug');
@@ -19,5 +22,5 @@ app.use((req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('Esperando...');
+  console.log(`Esperando en puerto ${port}...`);
 });
